@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面向对象二 | 杨琼玉的博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、复习
+
+异常：程序运行的时候出现的错误，出现来了错误以后我们就要进行错误处理
+
+
+try{
+ }catch(e){
+ }
+
+2.原型：原型是一个对象     A.原型是构造函数的原型属性     B.原型是实例对象的原型对象
+3.如何通过原型来添加成员?   A.通过动态特性为原型添加成员   B.替换原型
+4.如何访问原型  A.构造函数通过原型属性访问原型 构造函数.prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象二">
+<meta property="og:url" content="http://yoursite.com/2015/07/22/面向对象二/index.html">
+<meta property="og:site_name" content="杨琼玉的博客">
+<meta property="og:description" content="一、复习
+
+异常：程序运行的时候出现的错误，出现来了错误以后我们就要进行错误处理
+
+
+try{
+ }catch(e){
+ }
+
+2.原型：原型是一个对象     A.原型是构造函数的原型属性     B.原型是实例对象的原型对象
+3.如何通过原型来添加成员?   A.通过动态特性为原型添加成员   B.替换原型
+4.如何访问原型  A.构造函数通过原型属性访问原型 构造函数.prototype">
+<meta property="og:updated_time" content="2017-02-10T01:16:26.729Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象二">
+<meta name="twitter:description" content="一、复习
+
+异常：程序运行的时候出现的错误，出现来了错误以后我们就要进行错误处理
+
+
+try{
+ }catch(e){
+ }
+
+2.原型：原型是一个对象     A.原型是构造函数的原型属性     B.原型是实例对象的原型对象
+3.如何通过原型来添加成员?   A.通过动态特性为原型添加成员   B.替换原型
+4.如何访问原型  A.构造函数通过原型属性访问原型 构造函数.prototype">
+  
+    <link rel="alternative" href="/atom.xml" title="杨琼玉的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨琼玉</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yang-qy.top">yang-qy</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">杨琼玉</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨琼玉</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-面向对象二" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/22/面向对象二/" class="article-date">
+  	<time datetime="2015-07-22T11:15:52.000Z" itemprop="datePublished">2015-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象二
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、复习"><a href="#一、复习" class="headerlink" title="一、复习"></a>一、复习</h4><blockquote>
+<ol>
+<li>异常：程序运行的时候出现的错误，出现来了错误以后我们就要进行错误处理</li>
+</ol>
+</blockquote>
+<pre><code>try{
+ }catch(e){
+ }
+</code></pre><blockquote>
+<p>2.原型：原型是一个对象<br>     A.原型是构造函数的原型属性<br>     B.原型是实例对象的原型对象</p>
+<p>3.如何通过原型来添加成员?<br>   A.通过动态特性为原型添加成员<br>   B.替换原型</p>
+<p>4.如何访问原型<br>  A.构造函数通过原型属性访问原型 构造函数.prototype<br>  B.实例对象通过<strong>proto</strong>访问原型 例：实例对象.<strong>proto</strong>  或者 实例对象.constructor.prototype</p>
+</blockquote>
+<h4 id="二、如果修改原型对象中的属性值"><a href="#二、如果修改原型对象中的属性值" class="headerlink" title="二、如果修改原型对象中的属性值"></a>二、如果修改原型对象中的属性值</h4><blockquote>
+<p>给当前对象的原型提供的属性赋值，实际上是给当前对象添加了该属性的新成员，并不会修改原型对象中的成员</p>
+</blockquote>
+<h4 id="三、混入"><a href="#三、混入" class="headerlink" title="三、混入"></a>三、混入</h4><blockquote>
+<p>利用这个简单的赋值，就可以将一个对象的成员加到另一个对象上</p>
+</blockquote>
+<pre><code>var o1={&apos;name&apos;:&apos;andy&apos;};
+var o2={&apos;age&apos;:19};
+o2.name=o1.name;
+//混入使得o2具有了age和o1中的name，即将o1混入到o2中
+//混入也是一种继承方式
+</code></pre><h4 id="四、如何使用代码实现混入"><a href="#四、如何使用代码实现混入" class="headerlink" title="四、如何使用代码实现混入"></a>四、如何使用代码实现混入</h4><blockquote>
+<p>考虑要执行，写函数即可<br>由于将一个对象混入到另一个对象，所以有两个参数</p>
+</blockquote>
+<pre><code>function _mix_(obj,obj1){
+    for(var k in obj1){
+        obj[k]=obj1[k];
+    }
+ }
+</code></pre><blockquote>
+<p>在函数中，有一个默认的对象存在，即arguments。它里面存储着所有的传入的参数，arguments是函数中的一个对象，它包含了所有的参数，length属性表示参数的个数</p>
+</blockquote>
+<h4 id="五、原型式继承"><a href="#五、原型式继承" class="headerlink" title="五、原型式继承"></a>五、原型式继承</h4><blockquote>
+<p>写一个构造函数，如果需要将其继承自某个特定的对象o，那么只需要设置该构造函数的prototype属性为o即可</p>
+</blockquote>
+<h4 id="六、混合式继承"><a href="#六、混合式继承" class="headerlink" title="六、混合式继承"></a>六、混合式继承</h4><blockquote>
+<p>混合就是将多个对象的各个功能混合在一起，加到构造函数的原型对象上，那么该构造函数创建的实例，就继承多个对象了</p>
+<ul>
+<li>给原型对象添加混入方法（extend方法）</li>
+<li>通过原型对象的混入方法给原型对象添加成员</li>
+<li>只要是通过构造函数创建的实例</li>
+</ul>
+</blockquote>
+<h4 id="七、使用Object-create创建对象"><a href="#七、使用Object-create创建对象" class="headerlink" title="七、使用Object.create创建对象"></a>七、使用Object.create创建对象</h4><blockquote>
+<p>ES5提供的方法<br>1.基本的语法</p>
+<ul>
+<li>Object.create(对象) 使用一个对象作为原型创建一个新的对象，并返回</li>
+<li>返回的是对象</li>
+<li>返回的对象满足：原型对象 就是 参数中的对象</li>
+<li>新对象继承自参数<br>实现继承的快速方法<br>使用情况——假设我们不知道构造函数在哪里是什么，就不能new了，那就通过实例对象来创建一个类似的对象，然后就可以使用它了</li>
+</ul>
+</blockquote>
+<pre><code>Object.create=function(o){
+  function f(){};
+  F.prototype=o;
+  return new F();
+};
+</code></pre><h4 id="八、实现Object-create兼容"><a href="#八、实现Object-create兼容" class="headerlink" title="八、实现Object.create兼容"></a>八、实现Object.create兼容</h4><blockquote>
+<p>先判断有没有，如果没有再加上</p>
+</blockquote>
+<pre><code> if ( !Object.create ) {
+        Object.create =function ( o ) {
+        function F() {}
+        F.prototype = o;
+        return new F();
+    };
+}
+</code></pre><blockquote>
+<p>直接在内置对象上添加成员，优点：和原生对象无缝对接，哪些方法是原生，哪些是个人的无法分清</p>
+</blockquote>
+<pre><code>// 在书写兼容代码的时候. 一般是写一个通用的函数或方法. 在函数或方法判断
+// 是否具有原生的方法, 如果有直接使用系统自带的. 如果没有, 我们再自己实现
+function createWithObject ( obj ) {
+    if ( Object.create ) {
+        return Object.create( obj );
+    } else {
+        function F() {}
+        F.prototype = obj;
+        return new F();
+    }
+}
+</code></pre><h4 id="九、对象的原型链"><a href="#九、对象的原型链" class="headerlink" title="九、对象的原型链"></a>九、对象的原型链</h4><blockquote>
+<ol>
+<li>凡是对象都有原型<ul>
+<li>构造函数Person创建的对象p有原型Person.prototype</li>
+<li>Person.prototype是对象，它也是有原型的</li>
+<li>Person.prototype.<strong>proto</strong>里的constructor是Object，所以Person.prototype.<strong>proto</strong>就是Object.prototype</li>
+<li>Object.prototype.<strong>proto</strong>是null，因此表明Object.prototype是顶级</li>
+</ul>
+</li>
+<li>系统内置的原型链<ul>
+<li>[]–》Array.prototype–》Object.prototype–》null</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h4 id="十、动态函数——Function"><a href="#十、动态函数——Function" class="headerlink" title="十、动态函数——Function"></a>十、动态函数——Function</h4><blockquote>
+<p>在程序运行的时候，将一段字符串当做代码来执行，由于字符串可以随意的拼接，因此得到动态的执行</p>
+<ul>
+<li>eval</li>
+<li>Function</li>
+<li>定义动态函数，并执行<ul>
+<li>使用Function构造函数，创建函数 Function是一个构造函数，new Function得到一个函数</li>
+<li>语法<br>new Function（arg0，arg1,……，argN,body）  Function 的所有的参数，除了最后一个以外，都是生成的函数的参数，最后一个参数是函数体</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="十一、arguments对象"><a href="#十一、arguments对象" class="headerlink" title="十一、arguments对象"></a>十一、arguments对象</h4><blockquote>
+<ul>
+<li>arguments 凡是函数调用，都会默认含有一个arguments对象，可以将其看做为数组，里面存储着调用时传入的所有参数，可以使用数组的索引访问这些参数</li>
+<li>函数名.length即函数名length属性，得到的是函数定义的时候的形参的个数</li>
+</ul>
+</blockquote>
+<h4 id="十二、callee与caller"><a href="#十二、callee与caller" class="headerlink" title="十二、callee与caller"></a>十二、callee与caller</h4><blockquote>
+<ul>
+<li>js中的函数也是一个对象<ul>
+<li>callee在函数的内部，它表示 当前函数 的引用</li>
+<li>一般在函数内部，实现函数递归的时候，我们一般使用callee表示函数的引用</li>
+<li>caller表示调用函数<br>在函数f1中调用函数f2<br>f1就是成为调用者，调用的发起人<br>f2就是被调用者<br>caller就是在被调用函数中，获得调用函数的引用</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/05/CSS-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          CSS(3)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/12/面向对象一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象一</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="面向对象二" data-title="面向对象二" data-url="http://yoursite.com/2015/07/22/面向对象二/"  data-images="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" data-content="面向对象二">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="面向对象二" data-title="面向对象二" data-url="http://yoursite.com/2015/07/22/面向对象二/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yang-qy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 杨琼玉
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
