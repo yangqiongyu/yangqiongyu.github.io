@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax编程 | 杨琼玉的博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="即 Asynchronous Javascript And XML，AJAX 不是一门的新的语言，而是对现有持术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。
+异步
+指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。
+其优势在于不阻塞程序的执行，从而提升整体执行效率。
+
+
+
+
+现实生活中的一个例子打电话是同步 发消息是异">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax编程">
+<meta property="og:url" content="http://yoursite.com/2014/06/18/AJAX编程/index.html">
+<meta property="og:site_name" content="杨琼玉的博客">
+<meta property="og:description" content="即 Asynchronous Javascript And XML，AJAX 不是一门的新的语言，而是对现有持术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。
+异步
+指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。
+其优势在于不阻塞程序的执行，从而提升整体执行效率。
+
+
+
+
+现实生活中的一个例子打电话是同步 发消息是异">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3617300-0d7c7e3c17f45076.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3617300-130844270b70b0fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3617300-99ffb6f1d456efd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3617300-7b4557ace20da9ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-02-14T09:10:26.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax编程">
+<meta name="twitter:description" content="即 Asynchronous Javascript And XML，AJAX 不是一门的新的语言，而是对现有持术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。
+异步
+指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。
+其优势在于不阻塞程序的执行，从而提升整体执行效率。
+
+
+
+
+现实生活中的一个例子打电话是同步 发消息是异">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3617300-0d7c7e3c17f45076.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="杨琼玉的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨琼玉</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yang-qy.top">yang-qy</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">杨琼玉</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨琼玉</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-AJAX编程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/18/AJAX编程/" class="article-date">
+  	<time datetime="2014-06-18T08:12:35.000Z" itemprop="datePublished">2014-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax编程
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>即 Asynchronous Javascript And XML，AJAX 不是一门的新的语言，而是对现有持术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。</p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><ul>
+<li>指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。</li>
+<li>其优势在于不阻塞程序的执行，从而提升整体执行效率。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3617300-0d7c7e3c17f45076.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3617300-130844270b70b0fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></p>
+<blockquote>
+<p>现实生活中的一个例子<br>打电话是同步 发消息是异步<br>XMLHttpRequest可以以异步方式的处理程序。</p>
+</blockquote>
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><p>浏览器内建对象，用于在后台与服务器通信(交换数据) ，由此我们便可实现对网页的部分更新，而不是刷新整个页面。</p>
+<ul>
+<li>1、下面是一个简单的例子</li>
+</ul>
+<p>见代码示例8-1.html和8-1.php</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3617300-99ffb6f1d456efd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9.png"></p>
+<ul>
+<li>2、同步<br>见代码示例8-2.html 和 8-2.php</li>
+</ul>
+<p>![Upload 11.png failed. Please try again.]</p>
+<p>由于XMLHttpRequest本质基于HTTP协议实现通信，所以结合HTTP协议和上面的例子我们分析得出如下结果</p>
+<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><ul>
+<li><p>1、请求行<br>a) 需要有一个请求方式<br>b) 一个请求地址url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.open(&apos;get&apos;,&apos;index.php&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、请求头<br>  a)  设置请求头<br>  b)  post方式请求时，必须设置</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.setRequestHeader(&apos;Conten-Type&apos;,&apos;application/x-www-form-urlencoded&apos;);</div></pre></td></tr></table></figure>
+<p>get方式请求可以不设置</p>
+<ul>
+<li><p>3、请求主体</p>
+<p>  a) 实际上是客户端请求的数据<br>  b) 当以post方式请求时，需要xhr.send(‘key=val&amp;key1=val2’)的形式<br>  c) 当以get方式请求时，参数是放在请求url上的，所以一般写成xhr.send()或xhr.send(null);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.send(null);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><ul>
+<li>HTTP响应是由服务端发出的，作为客户端更应关心的是响应的结果。</li>
+<li>HTTP响应3个组成部分与XMLHttpRequest方法或属性的对应关系。</li>
+<li>由于服务器做出响应需要时间（比如网速慢等原因），所以我们需要监听服务器响应的状态，然后才能进行处理。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/3617300-7b4557ace20da9ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="12.png"><br>上图中的onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态</p>
+<ul>
+<li>1、获取状态行（包括状态码&amp;状态信息）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.status   // 状态码</div><div class="line">xhr.statusText  //状态信息</div></pre></td></tr></table></figure>
+<ul>
+<li>2、获取响应头</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//获取指定头信息</div><div class="line">xhr.getResponseHesder(&apos;Content-Type);</div><div class="line">//获取所有响应头信息</div><div class="line">xhr.getAllResponseHeaders();</div></pre></td></tr></table></figure>
+<ul>
+<li>3、响应主体</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.responseText;</div><div class="line">xhr.responseXML;</div></pre></td></tr></table></figure>
+<h3 id="API详解"><a href="#API详解" class="headerlink" title="API详解"></a>API详解</h3><blockquote>
+<p>xhr.open() 发起请求，可以是get、post方式<br>xhr.setRequestHeader() 设置请求头<br>xhr.send() 发送请求主体get方式使用xhr.send(null)<br>xhr.onreadystatechange = function () {} 监听响应状态<br>xhr.readyState = 0时，UNSENT open尚未调用<br>xhr.readyState = 1时，OPENED open已调用<br>xhr.readyState = 2时，HEADERS_RECEIVED 接收到头信息<br>xhr.readyState = 3时，LOADING 接收到响应主体<br>xhr.readyState = 4时，DONE 响应完成<br>不用记忆状态，只需要了解有状态变化这个概念<br>xhr.status表示响应码，如200<br>xhr.statusText表示响应信息，如OK<br>xhr.getAllResponseHeaders() 获取全部响应头信息<br>xhr.getResponseHeader(‘key’) 获取指定头信息<br>xhr.responseText、xhr.responseXML都表示响应主体</p>
+</blockquote>
+<ul>
+<li><p>注：GET和POST请求方式的差异（面试题）</p>
+<ul>
+<li>1、GET没有请求主体，使用xhr.send(null)</li>
+<li>2、GET可以通过在请求URL上添加请求参数</li>
+<li>3、POST可以通过xhr.send(‘name=itcast&amp;age=10’)</li>
+<li><p>4、POST需要设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.setRequestHeader(&apos;Content-Type&apos;,&apos;application/x-www-form-urlencoded&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>5、GET效率更好（应用多）</p>
+</li>
+<li>6、GET大小限制约4K，POST则没有限制</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/10/one/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Hexo 搭建博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/06/06/Ajax（2）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax(2)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="AJAX编程" data-title="Ajax编程" data-url="http://yoursite.com/2014/06/18/AJAX编程/"  data-images="http://ogwarhzrd.bkt.clouddn.com/psb.jpg" data-content="Ajax编程">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="AJAX编程" data-title="Ajax编程" data-url="http://yoursite.com/2014/06/18/AJAX编程/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yang-qy"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2017 杨琼玉
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
