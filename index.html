@@ -167,6 +167,184 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Seajs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/20/Seajs/" class="article-date">
+  	<time datetime="2016-10-20T07:43:25.000Z" itemprop="datePublished">2016-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/20/Seajs/">
+        Sea.js
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Sea-js学习和使用"><a href="#Sea-js学习和使用" class="headerlink" title="Sea.js学习和使用"></a>Sea.js学习和使用</h3><pre><code>* Sea.js 是一个适用于Web浏览器端的模块加载器。在Sea.js里，一切皆是模块，所有模块协同构建成模块系统
+* Ses.js遵循CMD（Common Module Definition）公共模块定义规范
+</code></pre><h4 id="基本应用"><a href="#基本应用" class="headerlink" title="基本应用"></a>基本应用</h4><blockquote>
+<p>1.用npm下载最新的Sea.js文件</p>
+<p>2.在页尾引入Sea.js</p>
+</blockquote>
+<pre><code>&lt;script src=&quot;node_modules/seajs/dist/sea.js&quot;&gt;&lt;/script&gt;
+</code></pre><blockquote>
+<p>3.然后在它下面写模块的配置和入口<br>配置:通常在配置上修改seajs的路径和别名</p>
+<p>seajs的路径是相对于前面引入的seajs文件的 </p>
+<p>一般情况是用不到的；但是假如路径特别深，或者要做路径映射的时候才进行配置</p>
+<p>常用配置</p>
+</blockquote>
+<pre><code>seajs.config({
+// Sea.js 的基础路径（修改这个,路径就不是相对于seajs文件了）
+    base:&apos;./js&apos;,
+// 别名配置（用变量表示文件，解决路径层级过深和实现路径映射）
+    alias:{
+            jquery:&apos;../node_modules/jquery/dist/jquery.js&apos;
+        }
+});
+</code></pre><blockquote>
+<p>入口:入口即加载，需要加载什么文件（模块加载器）就在这里引入； sea.js 在下载完成后，会自动加载入口模块</p>
+</blockquote>
+<pre><code>seajs.use(&quot;main&quot;);  
+//导入seajs.js同级文件夹下的main.js模块的（后缀名可略去不写）
+</code></pre><h4 id="模块开发"><a href="#模块开发" class="headerlink" title="模块开发"></a>模块开发</h4><blockquote>
+<p>就是一个书写规范（CMD）</p>
+</blockquote>
+<pre><code>// 所有模块都通过 define 来定义
+define(function(require, exports, module) {
+
+  // 通过 require 引入依赖
+  var $ = require(&apos;jquery&apos;);
+
+  // 通过 exports 对外提供接口
+  exports.doSomething = ...
+
+  // 或者通过 module.exports 提供整个接口
+  module.exports = ...
+
+});
+</code></pre><blockquote>
+<p>模块是通过define()方法包装的，然后内部通过require()方法引入需要的依赖文件(模块)（也可以引入.css文件）    </p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-BootStrap" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/BootStrap/" class="article-date">
+  	<time datetime="2016-03-18T08:12:35.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/18/BootStrap/">
+        bootstrap
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   bootstrap使用到的某些HTML元素和css属性需要将页面设置为HTML5文档类型。<br>   框架中的关键部分中增加了对移动设备友好的样式，所以bootstrap是移动设备优先的。<br>   bootstrap排版、链接、链接样式设置了基本的全局样式，body的背景色为白色;用@font-family-base、@font-size-base和 @line-height-base，a变量作为排版的基本参数;链接设置了基本颜色 @link-color ，并且当链接处于 :hover 状态时才添加下划线。</p>
+<ul>
+<li>css全局样式<br>1、栅格系统：<br>   （1）行（row）必须包含在.container （固定宽度）或 .container-fluid （100% 宽度），每一个行（row）会被系统自动分为12列。每行中超过12列的部分将会另起一行排列。<br>   （2）媒体查询<pre><code>   .col-xs:超小屏幕  手机 (&lt;768px)
+   .col-sm:小屏幕    平板 (≥768px)
+   .col-md:中等屏幕  桌面显示器 (≥992px)
+   .col-lg:大屏幕    大桌面显示器 (≥1200px)
+（3）列偏移，.col-md-offset-*，要往左偏移就写在要偏移的列左边，往右就写在右边
+（4）列嵌套，列里面还可以添加一个新的,.row元素和一系列的列。被嵌套的行所包含的列同样不超过12列。
+（5）列排序，.col-md-push-* 和 .col-md-pull-* 
+（6）Less minin变量，通过变量来定义列数、槽（gutter）宽、媒体查询阈值（用于确定合适让列浮动）。
+ @grid-columns:              12;
+</code></pre> @grid-gutter-width:         30px;<br> @grid-float-breakpoint:     768px;<br> （7）内联文本元素<br>   <lead></lead>，突出中心内容；（中心内容）<br>   <mark></mark>，文本高亮显示<br>   <del></del>，文本被删除<br>   <s></s>，没有的文本，加条删除线<br>   <ins></ins>，额外插入的文本<br>   <small></small>，小号文本<br>   <strong></strong>，着重<br>   <em></em>，斜体<br>  （8）对齐<pre><code>text-left，左对齐
+text-center，居中对齐
+text-right，右对齐
+text-justify，两端对齐
+text-nowrap，禁止换行
+</code></pre>   （9）改变英文大小写<pre><code>text-lowercase，小写
+text-uppercase，大写
+text-capitalize，首字母大写
+</code></pre></li>
+<li>组件</li>
+</ul>
+<ul>
+<li>JavaScript插件</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-CSS-3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1231,206 +1409,11 @@ function createWithObject ( obj ) {
 
 
   
-    <article id="post-Ajax（3）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/09/15/Ajax（3）/" class="article-date">
-  	<time datetime="2014-09-15T05:33:11.000Z" itemprop="datePublished">2014-09-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/15/Ajax（3）/">
-        Ajax（3）
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><ul>
-<li>XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据）。</li>
-<li>HTML是来展现网页的</li>
-<li>XML是把数据给用户来用（存储数据的）</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml versio = &quot;1.0&quot; encoding = &quot;UTF-8&quot;?&gt;</div><div class="line">&lt;html&gt;</div><div class="line">        &lt;body&gt;</div><div class="line">                &lt;div&gt;学习xml&lt;/div&gt;</div><div class="line">                &lt;name&gt;itcast&lt;/name&gt;</div><div class="line">                &lt;age&gt;18&lt;/age&gt;</div><div class="line">        &lt;/body&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><ul>
-<li>1、必须有一个根元素。</li>
-<li>2、可以自定义标签名。</li>
-<li>3、不可有空格、不可以数字或 .开头、大小写敏感</li>
-<li>4、不可交叉嵌套</li>
-<li>5、属性双引号</li>
-<li>6、特殊符号要使用实体</li>
-<li>7、注释和HTML一样</li>
-</ul>
-<p>虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以现在开发已经很少使用了。</p>
-<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><blockquote>
-<p>即javaScript Object Notation 另一种轻量级的文本数据交换格式，独立与语言。</p>
-</blockquote>
-<ul>
-<li><p>语法规则</p>
-<ul>
-<li>1、数据在名称/值对中</li>
-<li>2、数据由逗号分隔（最后一个健/值对不能带逗号）</li>
-<li>3、花括号保存对象方括号保存数组</li>
-<li>4、使用双引号</li>
-</ul>
-</li>
-</ul>
-<h3 id="JSON解析"><a href="#JSON解析" class="headerlink" title="JSON解析"></a>JSON解析</h3><ul>
-<li><p>JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取。</p>
-</li>
-<li><p>1、Javascript解析方法</p>
-<blockquote>
-<p>eavl()、JSON对象、JSON.parse()、JSON.stringify();</p>
-</blockquote>
-</li>
-<li>2、PHP解析方法<blockquote>
-<p>json_encode()、json_decode()</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var json = JOSN.stringify(obj)  //对象转json</div><div class="line">var object = JOSN.parse(josn) //json转对象</div></pre></td></tr></table></figure>
-<ul>
-<li>eaval 可以将字符串解析成JS可以识别的语法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var str = &apos;sleret(1)&apos;;</div><div class="line">eval(&apos;(&apos;+str+&apos;)&apos;);</div><div class="line">结果 为 1</div><div class="line">``` </div><div class="line"></div><div class="line">* JSON一转换变成Obj</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>var json = ‘{“mane”:”itcast”,”age”:10 }’;<br>var obj = eval(‘(‘+ ‘{“mane”:”itcast”,”age”:10 }’+’)’);<br>console.log(obj);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;cc:ie6+快捷键  把js兼容放在里面</div><div class="line"></div><div class="line">* 在PHP中解析JOSN</div></pre></td></tr></table></figure></p>
-<p>//数据是存在数据库里，从数据里取后往往是一个数组或对象<br>需要转换成JOSN<br>$arr = array(<br> ‘name’=&gt;’itcast’,<br>‘age’=&gt;10<br>) ;</p>
-<p>echo json_encode($arr);//转换成josn</p>
-<p>$obj = json_decode($json);//转换成对象</p>
-<p>echo $obj-&gt;name;//访问对象属性</p>
-<p>$result=file_get_content(‘stars.json’);//获取文件<br>echo $result;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### Ajax工具函数封装</div></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html lang="en"></html></p>
-<p><head><br>    <meta charset="UTF-8"><br>    <title>Ajax工具函数</title><br></head></p>
-<p><body><br>    <script><br>        // 定义一个命名空间<br>        var $ = {<br>            params: function (args) { // 专门处理我们的数据<br>                var o = ‘’;<br>                for(var k in args) {<br>                    o += k + ‘=’ + args[k] + ‘&amp;’;<br>                }</p>
-<pre><code>            o = o.slice(0, -1);
-
-            return o;
-            // console.log(o);
-        },
-        ajax: function (options) {
-            // 初始化参数
-            var type = options.type || &apos;get&apos;;
-            var url = options.url || location.pathname;
-
-            // get 方式 url?key=val&amp;key1=val1
-            // post 方式 xhr.send(key=val&amp;key1=val1)
-            var data = this.params(options.data || {});
-
-            // var success = options.success || function () {console.log(&apos;回调函数不能为空&apos;)}
-
-            var success = options.success;
-
-            var xhr = new XMLHttpRequest;
-
-            if(type == &apos;get&apos;) { // 当请求方式为get，参数放到url上
-                url = url + &apos;?&apos; + data;
-                data = null;
-            }
-
-            // 设置请求方式
-            xhr.open(type, url);
-
-            if(type == &apos;post&apos;) { // 当请求方式为post，需要设置Content-Type
-                xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);
-            }
-
-            // 发送请求主体
-            xhr.send(data);
-
-            xhr.onreadystatechange = function () {
-                if(xhr.readyState == 4 &amp;&amp; xhr.status == 200) {
-                    // 调用回调函数并传参
-                    var result = JSON.parse(xhr.responseText);
-
-                    success(result);
-                }
-            }
-        }
-    }
-
-    // 调用函数
-    $.ajax({
-        type: &apos;post&apos;,
-        url: &apos;demo.php&apos;,
-        data: {name: &apos;itcast&apos;, age: 10},
-        success: function (data) {
-            console.log(data);
-        }
-    });
-
-
-    function fn(arg1) {
-        // alert(arg1);
-
-        // arg1();
-    }
-
-    // fn(1);
-
-    // fn([1,2]);
-
-    // fn({name: &apos;itcast&apos;});
-
-    var callback = function () {
-        alert(1);
-    }
-
-    fn(callback);
-
-    // for(var key in location) {
-    //  console.log(key + &apos;~~~~&apos; + location[key]);
-    // }
-&lt;/script&gt;
-</code></pre><p></body><br></html><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* PHP文件</div></pre></td></tr></table></figure></p>
-<p>&lt;?php<br>    // 接收数据<br>    //  以JSON方式返回<br>    echo json_encode($_GET);<br>?&gt;<br>```</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><blockquote>
-<p>get数据 传在url 后面<br>Conten-type 是设置send里面的类型<br>有get 就不要Content-type</p>
-</blockquote>
-</script></body></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-AJAX编程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/04/16/AJAX编程/" class="article-date">
-  	<time datetime="2014-04-16T08:12:35.000Z" itemprop="datePublished">2014-04-16</time>
+      <a href="/2014/06/18/AJAX编程/" class="article-date">
+  	<time datetime="2014-06-18T08:12:35.000Z" itemprop="datePublished">2014-06-18</time>
 </a>
     </div>
   
@@ -1443,7 +1426,7 @@ function createWithObject ( obj ) {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/16/AJAX编程/">
+      <a class="article-title" href="/2014/06/18/AJAX编程/">
         Ajax编程
         
       </a>
@@ -1555,8 +1538,8 @@ function createWithObject ( obj ) {
     <article id="post-Ajax（2）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/04/15/Ajax（2）/" class="article-date">
-  	<time datetime="2014-04-15T01:00:35.000Z" itemprop="datePublished">2014-04-15</time>
+      <a href="/2014/06/06/Ajax（2）/" class="article-date">
+  	<time datetime="2014-06-06T01:00:35.000Z" itemprop="datePublished">2014-06-06</time>
 </a>
     </div>
   
@@ -1569,7 +1552,7 @@ function createWithObject ( obj ) {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/15/Ajax（2）/">
+      <a class="article-title" href="/2014/06/06/Ajax（2）/">
         Ajax(2)
         
       </a>
@@ -1689,8 +1672,8 @@ function createWithObject ( obj ) {
     <article id="post-Ajax(1)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/04/10/Ajax(1)/" class="article-date">
-  	<time datetime="2014-04-10T11:00:35.000Z" itemprop="datePublished">2014-04-10</time>
+      <a href="/2014/05/25/Ajax(1)/" class="article-date">
+  	<time datetime="2014-05-25T11:00:35.000Z" itemprop="datePublished">2014-05-25</time>
 </a>
     </div>
   
@@ -1703,7 +1686,7 @@ function createWithObject ( obj ) {
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/10/Ajax(1)/">
+      <a class="article-title" href="/2014/05/25/Ajax(1)/">
         Ajax(1)
         
       </a>
